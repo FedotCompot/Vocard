@@ -60,6 +60,7 @@ class SearchType(Enum):
     SPOTIFY = "spsearch"
     SOUNDCLOUD = "scsearch"
     APPLE_MUSIC = "amsearch"
+    DEFAULT = SPOTIFY
 
     def __str__(self) -> str:
         return self.value

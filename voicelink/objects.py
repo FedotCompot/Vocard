@@ -67,7 +67,7 @@ class Track:
         track_id: str = None,
         info: dict,
         requester: Member,
-        search_type: SearchType = SearchType.YOUTUBE_MUSIC,
+        search_type: SearchType = SearchType.DEFAULT,
     ):
         self._track_id: Optional[str] = track_id
         self.info: dict = info

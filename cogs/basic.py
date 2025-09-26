@@ -221,7 +221,7 @@ class Basic(commands.Cog):
         for search_type in SearchType
     ])
     @commands.dynamic_cooldown(cooldown_check, commands.BucketType.guild)
-    async def search(self, ctx: commands.Context, *, query: str, platform: str = SearchType.YOUTUBE_MUSIC.name):
+    async def search(self, ctx: commands.Context, *, query: str, platform: str = SearchType.DEFAULT.name):
         "Loads your input and added it to the queue."
         player: voicelink.Player = ctx.guild.voice_client
         if not player:
@@ -233,7 +233,7 @@ class Basic(commands.Cog):
         if url(query):
             return await send(ctx, "noLinkSupport", ephemeral=True)
         
-        search_type: SearchType = SearchType.match(platform) or SearchType.YOUTUBE_MUSIC
+        search_type: SearchType = SearchType.match(platform) or SearchType.DEFAULT
         tracks = await player.get_tracks(query=query, requester=ctx.author, search_type=search_type)
         if not tracks:
             return await send(ctx, "noTrackFound")

@@ -353,7 +353,7 @@ class Node:
         query: str,
         *,
         requester: Member,
-        search_type: SearchType = SearchType.YOUTUBE_MUSIC
+        search_type: SearchType = SearchType.DEFAULT
     ) -> Union[List[Track], Playlist]:
         """
         Fetches tracks from the node's REST api to parse into Lavalink.
